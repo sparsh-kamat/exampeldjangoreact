@@ -50,7 +50,11 @@ const Login = () => {
         required
       />
       <button type="submit">Login</button>
+      <p style={{ textAlign: "center" }}>
+        <a href="/forgot-password">Forgot Password?</a>
+      </p>
     </form>
+
   );
 };
 

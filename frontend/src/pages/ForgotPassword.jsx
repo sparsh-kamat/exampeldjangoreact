@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [otpSent, setOtpSent] = useState(false);
+  const navigate = useNavigate();
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
@@ -27,6 +29,10 @@ const ForgotPassword = () => {
           { email, otp, password: newPassword }
         );
         console.log(response.data);
+
+        //navigate to home page after successful password reset
+        navigate("/home");
+        
       } catch (error) {
         console.error(error.response?.data || error.message);
       }
