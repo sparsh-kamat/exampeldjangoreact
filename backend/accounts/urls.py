@@ -8,5 +8,5 @@ urlpatterns = [
     path('reset-password/', ResetPasswordView.as_view(), name='reset_password'),
     path('login/', LoginView.as_view(), name='login'),
     path('api/check-auth', CheckAuthView.as_view(), name='check-auth'),
-    path('api/past-disasters/', PastDisasterList.as_view(), name='past-disasters'),
+    path('past-disasters/', PastDisasterList.as_view(), name='past-disasters'),
 ]

@@ -3,18 +3,19 @@ from django.db import models
 
 
 class PastDisaster(models.Model):
-    latitude = models.DecimalField(max_digits=9, decimal_places=7)
-    longitude = models.DecimalField(max_digits=9, decimal_places=7)
-    title = models.TextField()
-    disaster_year = models.IntegerField()
-    month = models.IntegerField()
-    location = models.TextField()
-    state = models.TextField()
-    disaster_type = models.TextField()
-    total_deaths = models.IntegerField()
-    total_injured = models.IntegerField()
-    total_affected = models.BigIntegerField()
-    economic_loss_inr = models.BigIntegerField()
+    id = models.AutoField(primary_key=True)  # Add this line
+    Latitude = models.DecimalField(max_digits=9, decimal_places=7)
+    Longitude = models.DecimalField(max_digits=9, decimal_places=7)
+    Title = models.TextField()
+    Disaster_Year = models.IntegerField()
+    Month = models.IntegerField()
+    Location = models.TextField()
+    State = models.TextField()
+    Disaster_Type = models.TextField()
+    Total_Deaths = models.IntegerField()
+    Total_Injured = models.IntegerField()
+    Total_Affected = models.BigIntegerField()
+    Economic_Loss_INR = models.BigIntegerField()
 
     class Meta:
         db_table = 'past_disasters'  # Maps to your existing table
