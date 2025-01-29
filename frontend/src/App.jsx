@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import Home from "./pages/Home"; // Import the Home component
 import axios from 'axios';
+import DisasterList from './pages/DisasterList'; // Import the DisasterList component
 
 axios.defaults.withCredentials = true;
 axios.defaults.headers['Authorization'] = `Bearer ${localStorage.getItem('token')}`;
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/home" element={<Home />} /> {/* Add the Home route */}
+        <Route path="/disasters" element={<DisasterList />} /> {/* Add the DisasterList route */}
       </Routes>
     </Router>
   );

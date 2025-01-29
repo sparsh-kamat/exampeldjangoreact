@@ -34,6 +34,9 @@ const Navbar = () => {
         <nav>
             <ul>
                 <li>
+                    <NavLink to="/disasters" activeClassName="active">Disasters</NavLink>
+                </li>
+                <li>
                     <NavLink to="/home" activeClassName="active">Home</NavLink>
                 </li>
                 {isAuthenticated ? (
