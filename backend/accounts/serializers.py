@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User , PastDisaster
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,3 +11,7 @@ class OTPSerializer(serializers.Serializer):
     email = serializers.EmailField()
     otp = serializers.CharField(max_length=6)
 
+class PastDisasterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PastDisaster
+        fields = '__all__'  # Include all fields

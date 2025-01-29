@@ -10,6 +10,11 @@ from django.contrib.auth import authenticate, get_user_model
 from rest_framework.authtoken.models import Token  # For Token Authentication (optional)
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics
+from .models import PastDisaster
+from .serializers import PastDisasterSerializer
+from rest_framework.pagination import PageNumberPagination
+
 
 User = get_user_model()
 
@@ -138,3 +143,13 @@ class LoginView(APIView):
             print(f"Authentication failed for email: {email}. Invalid email or password.")
             
             return Response({"error": "Invalid email or password"}, status=status.HTTP_401_UNAUTHORIZED)
+        
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 100
+    page_size_query_param = 'page_size'
+    max_page_size = 1000
+
+class PastDisasterList(generics.ListAPIView):
+    queryset = PastDisaster.objects.all()
+    serializer_class = PastDisasterSerializer
+    pagination_class = StandardResultsSetPagination
